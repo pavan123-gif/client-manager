@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add/Edit Client</title>
+</head>
+<body>
+
+<h1>{{ 'Edit Client' if client else 'Add Client' }}</h1>
+
+<form method="POST">
+
+    Name:<br>
+    <input type="text" name="name" value="{{ client.name if client else '' }}"><br><br>
+
+    Phone:<br>
+    <input type="text" name="phone" value="{{ client.phone if client else '' }}"><br><br>
+
+    Service:<br>
+    <input type="text" name="service" value="{{ client.service if client else '' }}"><br><br>
+
+    Requirement:<br>
+    <input type="text" name="requirement" value="{{ client.requirement if client else '' }}"><br><br>
+
+    <button type="submit">Save</button>
+
+</form>
+
+</body>
+</html>

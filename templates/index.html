@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client Manager</title>
+
+    <!-- ✅ Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Client Management System</h2>
+
+    <!-- ADD BUTTON -->
+    <div class="text-end mb-3">
+        <a href="/add" class="btn btn-primary">+ Add New Client</a>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card shadow">
+        <div class="card-body">
+
+            <table class="table table-bordered table-hover text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Service</th>
+                        <th>Requirement</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for client in clients %}
+                    <tr>
+                        <td>{{ client.name }}</td>
+                        <td>{{ client.phone }}</td>
+                        <td>{{ client.service }}</td>
+                        <td>{{ client.requirement }}</td>
+                        <td>
+                            <a href="/edit/{{ client._id }}" class="btn btn-warning btn-sm">Edit</a>
+
+                            <a href="/delete/{{ client._id }}"
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('Delete this client?')">
+                               Delete
+                            </a>
+
+                            <a href="https://wa.me/91{{ client.phone }}"
+                               target="_blank"
+                               class="btn btn-success btn-sm">
+                               WhatsApp
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
